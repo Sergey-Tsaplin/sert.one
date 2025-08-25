@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>This is the title of the webpage!</title>
@@ -8,9 +8,14 @@
 
 <!--<h1>--><?php //echo "Hello World" ?><!--</h1>-->
 
-<canvas id="canvas" width="700" height="700" style="border:1px solid #c3c3c3;">
+ <canvas id="canvas" width="700" height="700" style="border:1px solid #c3c3c3;">
     Your browser does not support the canvas element.
 </canvas>
+<div id="manual">
+  <p>Use keys QWEASDZXC or numpad to navigate, Space, S or numPad5 to switch between painter and eraser</p>
+  <p id="status">Draw a smile!</p>
+  <img width="100" src="data/smile.png" alt="Smile image" id="smile-image">
+</div>
 
 <script type="text/javascript" src="scripts/classes.js"></script>
 <script type="text/javascript" src="scripts/main.js"></script>

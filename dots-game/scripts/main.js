@@ -47,16 +47,23 @@ function redraw() {
 
     table.forEachLine((point1, point2) => { drawer.drawPath([point1, point2]); });
 
+    let same = false;
+
     if (smile.length === table.lines.length) {
         const len = smile.length;
         table.lines.sort(Line.cmp);
         let diff = [];
         for (let i = 0; i < len; i++) { diff.push(table.lines[i].sub(smile[i])); }
-        let same = true;
+        same = true;
         for (let i = 1; i < len; i++) { same &= Line.isSame(diff[i], diff[i - 1]); }
-        if (same) {
-            console.log("CONGRATULATIONS! YOU DREW A PERFECT SMILE!");
-        }
+    }
+
+    if (same) {
+        console.log("CONGRATULATIONS! YOU DREW A PERFECT SMILE!");
+        document.getElementById("status").innerHTML = "CONGRATULATIONS! YOU DREW A PERFECT SMILE!"
+    } else {
+        document.getElementById("status").innerHTML = "Draw a smile! Now cursor is in <strong>"
+            + (pointer.isDrawing ? "painter" : "eraser") + "</strong> mode"
     }
 }
 
