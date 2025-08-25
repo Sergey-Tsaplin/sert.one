@@ -14,7 +14,7 @@
     <h2>Web GL content:</h2>
 
     <ul style="list-style-type:circle;">
-        <li><a href="medusa/index.html">Colored Mandelbrot set (Meduses and butts)</a></li>
+        <li><a href="medusa/index.php">Colored Mandelbrot set (Meduses and butts)</a></li>
         <li>More 2D and 3D graphics is planning to be added</li>
     </ul>
 </body>

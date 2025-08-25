@@ -44,7 +44,13 @@ function AddEvents() {
         isMouseDown = -1;         
     }, false);
 
-    addEventListener("keydown", function(e) { isShiftDown |= (e.keyCode == 16); }, false);
+    addEventListener("keydown", function(e) { 
+        isShiftDown |= (e.keyCode == 16);
+        if (e.keyCode == 39) { affineV.translation.x -= 0.1; }
+        if (e.keyCode == 37) { affineV.translation.x += 0.1; }
+        if (e.keyCode == 38) { affineV.translation.y -= 0.1; }
+        if (e.keyCode == 40) { affineV.translation.y += 0.1; }
+    }, false);
     addEventListener("keyup", function(e) { isShiftDown &= (e.keyCode != 16); }, false);
 
     var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel"; //FF doesn't recognize mousewheel as of FF3.x
