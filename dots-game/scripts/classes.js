@@ -111,6 +111,10 @@ class Table {
     }
 }
 
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
 class Pointer {
     constructor(table, row, col) {
         this.table = table;
@@ -119,9 +123,10 @@ class Pointer {
     }
 
     move(dr, dc) {
-        if (dr === 0 && dc === 0) { return; }
-        this.table.addLine(this.pos, this.pos.add(dr, dc), this.isDrawing);
-        this.pos = this.pos.add(dr, dc);
+        let new_pos = new Point(clamp(this.pos.x + dr, 0, CELLS_WIDTH - 1), clamp(this.pos.y + dc, 0, CELLS_HEIGHT - 1))
+        if (this.pos.x == new_pos.x && this.pos.y == new_pos.y) { return; }
+        this.table.addLine(this.pos, new_pos, this.isDrawing);
+        this.pos = new_pos;
     }
     changeIsDrawingState() { this.isDrawing = !this.isDrawing; }
 }

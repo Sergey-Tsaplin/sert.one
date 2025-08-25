@@ -33,7 +33,7 @@ function redraw() {
         drawer.ctx.ellipse(cell.point.x, cell.point.y, r, r, 0, 0, Math.PI * 2);
         if (cell.isUnderPointer(pointer)) {
             drawer.ctx.strokeStyle = "#00f";
-            drawer.ctx.lineWidth = width * 1.5;
+            drawer.ctx.lineWidth = width * 2.5;
             if (pointer.isDrawing) {
                 drawer.ctx.fillStyle = "#00f";
                 drawer.ctx.fill();
@@ -64,8 +64,10 @@ moveCodes = {
     'ArrowUp':[1,0],'ArrowDown':[-1,0],'ArrowLeft':[0,-1],'ArrowRight':[0,1],
     'Numpad1':[-1,-1],'Numpad2':[-1,0],'Numpad3':[-1,1], 'Numpad4':[0,-1],
     'Numpad6':[0,1],'Numpad7':[1,-1],'Numpad8':[1,0],'Numpad9':[1,1],
+    'KeyZ':[-1,-1],'KeyX':[-1,0],'KeyC':[-1,1], 'KeyA':[0,-1],
+    'KeyD':[0,1],'KeyQ':[1,-1],'KeyW':[1,0],'KeyE':[1,1],
 }
-upDownCodes = {'Space':[1], 'Numpad5':[1]};
+upDownCodes = {'Space':[1], 'Numpad5':[1], 'KeyS':[1]};
 specialCodes = {'Enter':[1]};
 
 document.addEventListener('keydown', (e) => {
